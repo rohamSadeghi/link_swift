@@ -17,7 +17,7 @@ B. Navigate to the project directory:
 
 ``cd link_swift``
 
-C. Create your virtual env and nstall the required packages using pip:
+C. Create your virtual env and install the required packages using pip:
 
 ``pip install -r requirements.txt``
 
