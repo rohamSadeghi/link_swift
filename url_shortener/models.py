@@ -23,10 +23,40 @@ class ShortenedURL(models.Model):
 
     @staticmethod
     def create_random_code(chars=AVAIABLE_CHARS):
+        """
+            Create a random short code composed of characters from the provided set.
+
+            Args:
+                chars (str): The set of characters to choose from for creating the code.
+                             Default is the set of available characters (AVAILABLE_CHARS).
+
+            Returns:
+                str: A randomly generated short code.
+
+            Example:
+                >>> code = ShortenedURL.create_random_code()
+                >>> print(code)
+                "8zxd9A"
+        """
         return "".join([choice(chars) for _ in range(settings.MAXIMUM_URL_CHARS)])
 
     @classmethod
     def create_shortened_url(cls):
+        """
+         Create a new ShortenedURL instance with a unique random short code.
+
+         This method generates a random short code and ensures that it is unique
+         among existing ShortenedURL instances. If the generated code is already in use,
+         the method recursively attempts to create a new one until a unique code is found.
+
+         Returns:
+             str: A unique random short code for the new ShortenedURL instance.
+
+         Example:
+             >>> shortened_url = ShortenedURL.create_shortened_url()
+             >>> print(shortened_url)
+             "6GkTf2"
+         """
         random_code = cls.create_random_code()
 
         if cls.objects.filter(short_code=random_code).exists():
