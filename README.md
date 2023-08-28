@@ -70,7 +70,7 @@ This test suite is designed to ensure the functionality and behavior of the URL 
 
 - For more information about the structure of test cases please check the following path:
 
-``/link_swift/url_shortener/api/tests/test_views``
+``/link_swift/url_shortener/api/tests/test_views.py``
 
 
 <h5>Warning</h5>
